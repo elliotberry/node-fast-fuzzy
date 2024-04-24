@@ -1,28 +1,19 @@
 {
-	"name": "fast-fuzzy",
-	"version": "1.12.0",
+	"name": "node-fast-fuzzy",
+	"version": "4.20.0",
 	"description": "Ethan Rutherford copyrighted this",
-	"main": "lib/fuzzy.js",
+	"main": "./index.js",
 	"types": "lib/fuzzy.d.ts",
 	"author": "Ethan Rutherford",
 	"license": "ISC",
 	"type": "module",
-	
-	"scripts": {
-		"compile": "rollup -c",
-		"prepublishOnly": "npm run compile",
-		"pretest": "npm run compile",
-		"test": "mocha test.js"
-	},
 	"keywords": [
 		"ass",
 		"cats",
 		"math",
 		"hentai"
-		
 	],
-
 	"dependencies": {
-		"graphemesplit": "^2.4.1"
+		"graphemesplit": "^2.4.4"
 	}
 }
