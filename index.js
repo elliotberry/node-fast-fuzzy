@@ -29,7 +29,8 @@ const arrayWrap = (item) => item instanceof Array ? item : [item];
 
 // return normalized string, with map included
 function normalize(string, options) {
-	const lower = options.ignoreCase ? string.toLowerCase() : string;
+	const safeLC = (val) => typeof val === "string" ? val.toLowerCase() : val;
+	const lower = options.ignoreCase ? safeLC(string) : string;
 
 	// track transformations
 	const normal = [];
