@@ -29,7 +29,7 @@ const arrayWrap = (item) => item instanceof Array ? item : [item];
 
 // return normalized string, with map included
 function normalize(string, options) {
-	const lower = options.ignoreCase ? string.toLocaleLowerCase() : string;
+	const lower = options.ignoreCase ? string.toLowerCase() : string;
 
 	// track transformations
 	const normal = [];
@@ -358,12 +358,11 @@ function searchRecurse(trie, term, scoreMethods, rows, results, resultMap, optio
 		// build rows
 		scoreMethods.score(term, acc, rows, len - 1);
 
-		// track best score and position
-		const lastIndex = len;
-		const lastValue = rows[rows.length - 1][lastIndex];
-		let sIndex = si, sValue = sv;
+		const lastValue = rows[rows.length - 1][len];
+		let sIndex = si;
+		let sValue = sv;
 		if (scoreMethods.shouldUpdateScore(lastValue, sv)) {
-			sIndex = lastIndex;
+			sIndex = len;
 			sValue = lastValue;
 		}
 
